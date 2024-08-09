@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://snoer6olak5v"]
+
+[ext_resource type="Script" path="res://scripts/fps.gd" id="1_vdror"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pxxge"]
+font_size = 10
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.505882)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FPS" type="Label" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -28.0
+offset_right = 50.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "FPS:"
+label_settings = SubResource("LabelSettings_pxxge")
+script = ExtResource("1_vdror")
+
+[node name="Variables (Left)" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 31.0
+text = "X Velocity:"
+label_settings = SubResource("LabelSettings_pxxge")
+
+[node name="Variables (Right)" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 8.0
+offset_right = -7.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Horizontal Direction:"
+label_settings = SubResource("LabelSettings_pxxge")
+horizontal_alignment = 2

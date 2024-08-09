@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://1d70m8305rr1"]
+
+[ext_resource type="PackedScene" uid="uid://thubdhmrasi8" path="res://scenes/test_level.tscn" id="1_n2bn5"]
+[ext_resource type="PackedScene" uid="uid://snoer6olak5v" path="res://scenes/hud.tscn" id="2_er64t"]
+[ext_resource type="PackedScene" uid="uid://bcedeytqbvse5" path="res://scenes/pause.tscn" id="3_37mpk"]
+[ext_resource type="PackedScene" uid="uid://dxcrjhgrej08o" path="res://scenes/dpad.tscn" id="3_v0pa1"]
+[ext_resource type="Texture2D" uid="uid://difkkmc00i5co" path="res://sprites/UI/MobileControls.png" id="4_etmas"]
+[ext_resource type="PackedScene" uid="uid://duj2y2turgoi6" path="res://scenes/options.tscn" id="4_x0xub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1jgk"]
+atlas = ExtResource("4_etmas")
+region = Rect2(72, 82, 24, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fiwu"]
+atlas = ExtResource("4_etmas")
+region = Rect2(72, 12, 24, 25)
+margin = Rect2(0, 1, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06snv"]
+atlas = ExtResource("4_etmas")
+region = Rect2(52, 86, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrhrf"]
+atlas = ExtResource("4_etmas")
+region = Rect2(52, 16, 16, 17)
+
+[node name="Test Level SubViewport" type="Node"]
+
+[node name="Level SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -120.0
+offset_right = 212.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(212, 120)
+
+[node name="Level SubViewport" type="SubViewport" parent="Level SubViewportContainer"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(424, 240)
+render_target_update_mode = 4
+
+[node name="Test Level" parent="Level SubViewportContainer/Level SubViewport" instance=ExtResource("1_n2bn5")]
+
+[node name="Pause SubViewportContainer" type="SubViewportContainer" parent="."]
+process_mode = 2
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -120.0
+offset_right = 212.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(212, 120)
+
+[node name="Pause SubViewport" type="SubViewport" parent="Pause SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(424, 240)
+render_target_update_mode = 4
+
+[node name="Pause" parent="Pause SubViewportContainer/Pause SubViewport" instance=ExtResource("3_37mpk")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Options" parent="Pause SubViewportContainer/Pause SubViewport" instance=ExtResource("4_x0xub")]
+offset_left = -1.52588e-05
+offset_top = -1.52588e-05
+
+[node name="HUD SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -120.0
+offset_right = 212.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(212, 120)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HUD SubViewport" type="SubViewport" parent="HUD SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(424, 240)
+render_target_update_mode = 4
+
+[node name="HUD" parent="HUD SubViewportContainer/HUD SubViewport" instance=ExtResource("2_er64t")]
+
+[node name="D-Pad" parent="HUD SubViewportContainer/HUD SubViewport" instance=ExtResource("3_v0pa1")]
+position = Vector2(60, 145)
+scale = Vector2(2, 2)
+
+[node name="A Button" type="TouchScreenButton" parent="HUD SubViewportContainer/HUD SubViewport"]
+position = Vector2(335, 145)
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_h1jgk")
+texture_pressed = SubResource("AtlasTexture_5fiwu")
+passby_press = true
+action = "jump"
+visibility_mode = 1
+
+[node name="Pause Button" type="TouchScreenButton" parent="HUD SubViewportContainer/HUD SubViewport"]
+position = Vector2(196, 10)
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_06snv")
+texture_pressed = SubResource("AtlasTexture_vrhrf")
+action = "pause"
+visibility_mode = 1
