@@ -27,7 +27,6 @@ var fall_time_counter: int = 0
 var last_run_anim: String
 var horizontal_direction: float
 var resistance: float
-var hud_visibility: bool = true
 var normal: Vector2
 var offset: float
 var floor_angle: int
@@ -193,19 +192,6 @@ func _physics_process(_delta):
 	else:
 		collision_normal.disabled = true
 		collision_jump.disabled = false
-
-
-# Show HUD
-	if hud_visibility == true:
-		variables_left.visible = true
-		variables_right.visible = true
-		fps.visible = true
-		variables_left.text = str("X Velocity: ", int(velocity.x), "\nY Velocity: ", int(velocity.y), "\nResistance: ", resistance, "\nLast Run Animation: ", last_run_anim)
-		variables_right.text = str("Horizontal Direction: ", horizontal_direction, "\nFloor Angle: ", floor_angle, "\nFloor Normal: ", normal.x, "\nCamera X Offset: ", camera.offset.x)
-	else:
-		variables_left.text = " "
-		variables_right.text = " "
-		fps.text = " "
 
 
 # Update animations

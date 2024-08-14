@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://snoer6olak5v"]
 
-[ext_resource type="Script" path="res://scripts/fps.gd" id="1_vdror"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_ljjux"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pxxge"]
 font_size = 10
@@ -10,6 +10,7 @@ shadow_color = Color(0, 0, 0, 0.505882)
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_ljjux")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -24,7 +25,6 @@ offset_bottom = -10.0
 grow_vertical = 0
 text = "FPS:"
 label_settings = SubResource("LabelSettings_pxxge")
-script = ExtResource("1_vdror")
 
 [node name="Variables (Left)" type="Label" parent="CanvasLayer"]
 offset_left = 8.0

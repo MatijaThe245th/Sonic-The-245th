@@ -1,5 +1,8 @@
 extends Control
 
+var game_width: float = 424.0
+var game_height: float = 240.0
+
 @onready var player = $"../../../Level SubViewportContainer/Level SubViewport/Test Level/Player"
 @onready var pause = $"../Pause"
 @onready var resume = $"../Pause/MarginContainer/VBoxContainer/Resume"
@@ -9,9 +12,9 @@ extends Control
 @onready var level_subviewport_container = $"../../../Level SubViewportContainer"
 @onready var pause_subviewport_container = $"../../../Pause SubViewportContainer"
 @onready var hud_subviewport_container = $"../../../HUD SubViewportContainer"
+@onready var hud = $"../../../HUD SubViewportContainer/HUD SubViewport/HUD"
 
 var integer_scaling: bool
-
 
 
 func _process(_delta):
@@ -20,23 +23,16 @@ func _process(_delta):
 	else:
 		visible = false
 
-	var display_resolution = DisplayServer.window_get_size()
-	# Desired screen size
-	var target_width: float = display_resolution.x
-	var target_height: float = display_resolution.y
+	var window_resolution = DisplayServer.window_get_size()
+	
+	var target_width: float = window_resolution.x
+	var target_height: float = window_resolution.y
 
-	# Original game screen size
-	var game_width: float = 424.0
-	var game_height: float = 240.0
-
-	# Calculate scaling factors
 	var width_scale: float = target_width / game_width
 	var height_scale: float = target_height / game_height
 
-	# Since we want to maintain the aspect ratio, choose the smaller scaling factor
 	var scale_factor: float = min(width_scale, height_scale)
 
-	# Apply the scaling factor to the viewport
 	if integer_scaling == false:
 		level_subviewport_container.scale.x = scale_factor
 		level_subviewport_container.scale.y = scale_factor
@@ -71,4 +67,4 @@ func _on_check_box_toggled(toggled_on):
 
 
 func _on_check_box_2_toggled(toggled_on):
-	player.hud_visibility = toggled_on
+	hud.hud_visibility = toggled_on
