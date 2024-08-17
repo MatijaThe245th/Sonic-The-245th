@@ -7,9 +7,16 @@
 atlas = ExtResource("2_1788f")
 region = Rect2(0, 49, 60, 21)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hi02x"]
-content_margin_left = 6.0
-content_margin_right = 6.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0jef"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 5.0
+texture = SubResource("AtlasTexture_76k2v")
+modulate_color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iivy"]
+content_margin_left = 4.0
+content_margin_right = 4.0
 content_margin_bottom = 5.0
 texture = SubResource("AtlasTexture_76k2v")
 
@@ -26,18 +33,11 @@ content_margin_right = 4.0
 content_margin_bottom = 5.0
 texture = SubResource("AtlasTexture_76k2v")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iivy"]
-content_margin_left = 4.0
-content_margin_right = 4.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hi02x"]
+content_margin_left = 6.0
+content_margin_right = 6.0
 content_margin_bottom = 5.0
 texture = SubResource("AtlasTexture_76k2v")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0jef"]
-content_margin_left = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 5.0
-texture = SubResource("AtlasTexture_76k2v")
-modulate_color = Color(0.411765, 0.411765, 0.411765, 1)
 
 [node name="Pause" type="Control"]
 process_mode = 3
@@ -64,29 +64,29 @@ size_flags_vertical = 4
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_hi02x")
+theme_override_styles/focus = SubResource("StyleBoxTexture_p0jef")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6iivy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_rva45")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2f758")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_6iivy")
-theme_override_styles/focus = SubResource("StyleBoxTexture_p0jef")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hi02x")
 text = "Resume"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_hi02x")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rva45")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hi02x")
 theme_override_styles/hover = SubResource("StyleBoxTexture_rva45")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hi02x")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_hi02x")
-theme_override_styles/focus = SubResource("StyleBoxTexture_rva45")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hi02x")
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_hi02x")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rva45")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hi02x")
 theme_override_styles/hover = SubResource("StyleBoxTexture_rva45")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hi02x")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_hi02x")
-theme_override_styles/focus = SubResource("StyleBoxTexture_rva45")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hi02x")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

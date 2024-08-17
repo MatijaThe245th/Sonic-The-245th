@@ -18,12 +18,11 @@ size = Vector2(586, 14)
 size = Vector2(585, 14)
 
 [node name="Test Level" type="Node2D"]
-position = Vector2(74, 17)
 
-[node name="Background" type="ParallaxBackground" parent="."]
+[node name="Background" type="Node2D" parent="."]
 
-[node name="Back" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0, 0)
+[node name="Back" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0, 0)
 
 [node name="Sprite1" type="Sprite2D" parent="Background/Back"]
 texture = ExtResource("4_gkb8q")
@@ -40,9 +39,9 @@ texture = ExtResource("4_gkb8q")
 centered = false
 offset = Vector2(512, -27)
 
-[node name="Middle" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.01, 0.005)
-motion_mirroring = Vector2(768, 0)
+[node name="Middle" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.01, 0.005)
+repeat_size = Vector2(768, 0)
 
 [node name="Sprite1" type="Sprite2D" parent="Background/Middle"]
 texture = ExtResource("5_dmfr7")
@@ -59,9 +58,9 @@ texture = ExtResource("5_dmfr7")
 centered = false
 offset = Vector2(512, -20)
 
-[node name="Front" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.02, 0.01)
-motion_mirroring = Vector2(768, 0)
+[node name="Front" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.02, 0.01)
+repeat_size = Vector2(768, 0)
 
 [node name="Sprite1" type="Sprite2D" parent="Background/Front"]
 texture = ExtResource("5_b2g0p")

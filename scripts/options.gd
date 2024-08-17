@@ -32,29 +32,26 @@ func _process(_delta):
 	var height_scale: float = target_height / game_height
 
 	var scale_factor: float = min(width_scale, height_scale)
+	
+	if scale_factor < 1:
+		scale_factor = 1
 
 	if integer_scaling == false:
-		level_subviewport_container.scale.x = scale_factor
-		level_subviewport_container.scale.y = scale_factor
-		pause_subviewport_container.scale.x = scale_factor
-		pause_subviewport_container.scale.y = scale_factor
+		level_subviewport_container.scale = Vector2(scale_factor, scale_factor)
+		pause_subviewport_container.scale = Vector2(scale_factor, scale_factor)
 		if pause.paused == 1:
 			hud_subviewport_container.scale.x = 0
 			hud_subviewport_container.scale.y = 0
 		else:
-			hud_subviewport_container.scale.x = scale_factor
-			hud_subviewport_container.scale.y = scale_factor
+			hud_subviewport_container.scale = Vector2(scale_factor, scale_factor)
 	else:
-		level_subviewport_container.scale.x = int(scale_factor)
-		level_subviewport_container.scale.y = int(scale_factor)
-		pause_subviewport_container.scale.x = int(scale_factor)
-		pause_subviewport_container.scale.y = int(scale_factor)
+		level_subviewport_container.scale = Vector2(int(scale_factor), int(scale_factor))
+		pause_subviewport_container.scale = Vector2(int(scale_factor), int(scale_factor))
 		if pause.paused == 1:
 			hud_subviewport_container.scale.x = 0
 			hud_subviewport_container.scale.y = 0
 		else:
-			hud_subviewport_container.scale.x = int(scale_factor)
-			hud_subviewport_container.scale.y = int(scale_factor)
+			hud_subviewport_container.scale = Vector2(int(scale_factor), int(scale_factor))
 
 
 func _on_back_pressed():

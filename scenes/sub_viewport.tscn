@@ -42,6 +42,7 @@ scale = Vector2(5, 5)
 pivot_offset = Vector2(212, 120)
 
 [node name="Level SubViewport" type="SubViewport" parent="Level SubViewportContainer"]
+transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 audio_listener_enable_2d = true

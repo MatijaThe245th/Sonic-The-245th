@@ -12,18 +12,18 @@ shadow_color = Color(0, 0, 0, 0.505882)
 atlas = ExtResource("2_kbpl2")
 region = Rect2(0, 49, 60, 21)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pstj"]
-content_margin_left = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 5.0
-texture = SubResource("AtlasTexture_r2sne")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mdppm"]
 content_margin_left = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 5.0
 texture = SubResource("AtlasTexture_r2sne")
 modulate_color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pstj"]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 5.0
+texture = SubResource("AtlasTexture_r2sne")
 
 [node name="Options" type="Control"]
 process_mode = 3
@@ -78,11 +78,11 @@ action_mode = 0
 [node name="Back" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_1pstj")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mdppm")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1pstj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_mdppm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1pstj")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_1pstj")
-theme_override_styles/focus = SubResource("StyleBoxTexture_mdppm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1pstj")
 text = "  Back  "
 
 [connection signal="toggled" from="MarginContainer/HBoxContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
